@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ page import="com.ecommerce.model.*" %>
+    <%
+    		User auth = (User) request.getSession().getAttribute("auth");
+		    if (auth != null) {
+		        request.setAttribute("person", auth);
+		    }
+    %>
 <!DOCTYPE html>
 <html>
 <head>

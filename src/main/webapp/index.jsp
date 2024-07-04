@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
     <%@ page import="com.ecommerce.connection.DbCon" %>
+    <%@ page import="com.ecommerce.model.*" %>
+    <%
+    		User auth = (User)request.getSession().getAttribute("auth");
+		    if (auth != null) {
+		        request.setAttribute("person", auth);
+		    }
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +24,7 @@
 <%
 
     out.print(DbCon.getConnection());
+out.print(request.getSession().getAttribute("auth"));
 %>
 
 <%@include file="includes/footer.jsp" %>
