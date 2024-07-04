@@ -13,10 +13,10 @@
 
 
 
-<%-- <%
+<%
 
     out.print(DbCon.getConnection());
-%> --%>
+%>
 
 <%@include file="includes/footer.jsp" %>
 </body>
