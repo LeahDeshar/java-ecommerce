@@ -2,8 +2,8 @@ package com.ecommerce.dao;
 import java.sql.*;
 import java.util.*;
 
-import com.ecommerce.*;
-//import cn.techtutorial.model.Product;
+import com.ecommerce.model.Cart;
+import com.ecommerce.model.Product;
 
 public class ProductDao {
 	private Connection con;
