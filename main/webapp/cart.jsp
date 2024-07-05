@@ -3,6 +3,9 @@
 <%@ page import="com.ecommerce.connection.DbCon"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@ page import="com.ecommerce.model.*"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.ecommerce.dao.ProductDao" %>
 <%
 DecimalFormat dcf = new DecimalFormat("#.##");
 request.setAttribute("dcf", dcf);
@@ -10,7 +13,7 @@ User auth = (User) request.getSession().getAttribute("auth");
 if (auth != null) {
     request.setAttribute("person", auth);
 }
-/* ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+ ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
 List<Cart> cartProduct = null;
 if (cart_list != null) {
 	ProductDao pDao = new ProductDao(DbCon.getConnection());
@@ -18,7 +21,7 @@ if (cart_list != null) {
 	double total = pDao.getTotalCartPrice(cart_list);
 	request.setAttribute("total", total);
 	request.setAttribute("cart_list", cart_list);
-} */
+}
 %>
 <!DOCTYPE html>
 <html>
@@ -53,11 +56,11 @@ font-size: 25px;
 				</tr>
 			</thead>
 			<tbody>
-				<%-- <%
+				 <%
 				if (cart_list != null) {
 					for (Cart c : cartProduct) {
-				%> --%>
-				<%-- <tr>
+				%>
+				<tr>
 					<td><%=c.getName()%></td>
 					<td><%=c.getCategory()%></td>
 					<td><%= dcf.format(c.getPrice())%></td>
@@ -65,8 +68,8 @@ font-size: 25px;
 						<form action="order-now" method="post" class="form-inline">
 						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
 							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
-								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
+								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a>
+								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly>
 								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
 							</div>
 							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
@@ -76,7 +79,7 @@ font-size: 25px;
 				</tr>
 
 				<%
-				}}%> --%>
+				}}%>
 			</tbody>
 		</table>
 	</div>
