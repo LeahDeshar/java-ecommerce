@@ -11,7 +11,7 @@ import com.ecommerce.connection.DbCon;
 import com.ecommerce.dao.UserDao;
 import com.ecommerce.model.User;
 
-@WebServlet("/user-logins")
+@WebServlet("/user-login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
