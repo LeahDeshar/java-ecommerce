@@ -5,6 +5,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.ecommerce.connection.DbCon" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.ecommerce.dao.OrderDao" %>
 <%
 		DecimalFormat dcf = new DecimalFormat("#.##");
 		request.setAttribute("dcf", dcf);
